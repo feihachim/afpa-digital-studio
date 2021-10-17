@@ -9,6 +9,7 @@ body {
   height: 100vh;
   font-family: "Karla", sans-serif;
 }
+
 .header {
   width: 100%;
   height: 50%;
@@ -56,21 +57,24 @@ button {
   padding-top: 40px;
 }
 
-#service-div-icon {
+.service-div-icon {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
 
-#service-div-icon div {
+.service-div-icon div {
   margin: 10px;
 }
 .navbar {
+  width: 70vw;
   height: 40px;
   display: flex;
+  background-color: white;
   justify-content: flex-start;
   align-items: center;
+  column-gap: 10px;
 }
 
 .nav-logo {
@@ -84,24 +88,12 @@ button {
   margin-top: -5px;
 }
 
-.item {
-  width: 70vw;
-  height: 40px;
-  display: flex;
-  justify-content: flex-end;
-  background-color: white;
-}
-
-.item > * {
-  margin: 10px;
-}
-
 .li-flex {
   font-weight: 600;
   color: red;
 }
 
-.item .home {
+.home {
   margin-left: auto;
 }
 
@@ -193,23 +185,15 @@ hr {
     flex-direction: column;
     justify-content: flex-start;
     background-color: transparent;
-  }
-  .item {
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    background-color: transparent;
+    column-gap: 30px;
   }
 
-  .item > * {
-    margin: 0;
-  }
-
-  .item a {
+  .navbar li:nth-child(n):not(:first-child) {
+    width: 90px;
     background-color: white;
   }
 
-  .item .home {
+  .home {
     margin-left: 0;
   }
 }

@@ -8,7 +8,8 @@ const images = [
 const headerDiv = document.querySelector(".header");
 const dots = document.querySelectorAll(".dot");
 const linkLogo = document.querySelector(".nav-logo a");
-const navMenu = document.querySelector(".item");
+const linkMenu = document.querySelectorAll('.navbar li:nth-child(n):not(:first-child)');
+const navMenu = document.querySelector(".navbar");
 let position = 0;
 const numberImages = images.length;
 
@@ -19,17 +20,39 @@ const displayCarousel = () => {
   dots[position].classList.add("active");
 };
 
-const toggleMenu = (event) => { 
-  if (navMenu.style.visibility === "visible") {
-    navMenu.style.visibility = "hidden";
-  } else {
-    navMenu.style.visibility = "visible";
+const toggleMenu = (event) => {
+  if (window.matchMedia("(max-width: 720px)").matches) {
+    navMenu.style.backgroundColor = "transparent";
+    if (linkMenu[0].style.visibility === "visible") {
+      linkMenu.forEach(element => {
+        element.style.visibility = "hidden";
+      });
+    }
+    else {
+      linkMenu.forEach(element => {
+        element.style.visibility = "visible";
+      });
+    }
+  }
+  else {
+    if (navMenu.style.backgroundColor === "transparent") {
+      navMenu.style.backgroundColor = "white";
+      linkMenu.forEach(element => {
+        element.style.visibility = "visible";
+      });
+    }
+    else {
+      navMenu.style.backgroundColor = "transparent";
+      linkMenu.forEach(element => {
+        element.style.visibility = "hidden";
+      });
+    }
   }
 };
 
 headerDiv.style.backgroundImage = "url('" + images[position] + "')";
 dots[position].classList.add("active");
-navMenu.style.visibility="visible";
+navMenu.style.backgroundColor = "white";
 linkLogo.addEventListener("click", toggleMenu);
 setInterval(displayCarousel, 2000);
 
