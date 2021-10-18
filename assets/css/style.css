@@ -68,11 +68,16 @@ button {
   margin: 10px;
 }
 .navbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.item {
   width: 70vw;
   height: 40px;
-  display: flex;
   background-color: white;
-  justify-content: flex-start;
+  display: flex;
   align-items: center;
   column-gap: 10px;
 }
@@ -93,7 +98,7 @@ button {
   color: red;
 }
 
-.home {
+.item .home {
   margin-left: auto;
 }
 
@@ -188,7 +193,12 @@ hr {
     column-gap: 30px;
   }
 
-  .navbar li:nth-child(n):not(:first-child) {
+  .item {
+    width: 90px;
+    flex-direction: column;
+  }
+
+  .item li {
     width: 90px;
     background-color: white;
   }
